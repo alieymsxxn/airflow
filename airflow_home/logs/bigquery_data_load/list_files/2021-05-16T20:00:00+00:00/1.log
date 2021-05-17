@@ -1,0 +1,62 @@
+[2021-05-17 02:00:04,229] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:00:04,236] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:00:04,236] {taskinstance.py:879} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:00:04,236] {taskinstance.py:880} INFO - Starting attempt 1 of 1
+[2021-05-17 02:00:04,236] {taskinstance.py:881} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:00:04,279] {taskinstance.py:900} INFO - Executing <Task(PythonOperator): list_files> on 2021-05-16T20:00:00+00:00
+[2021-05-17 02:00:04,285] {standard_task_runner.py:53} INFO - Started process 33588 to run task
+[2021-05-17 02:00:04,368] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [running]> alieymsxxn
+[2021-05-17 02:00:06,204] {python_operator.py:114} INFO - Done. Returned value was: []
+[2021-05-17 02:00:06,253] {taskinstance.py:1065} INFO - Marking task as SUCCESS.dag_id=bigquery_data_load, task_id=list_files, execution_date=20210516T200000, start_date=20210516T210004, end_date=20210516T210006
+[2021-05-17 02:00:14,196] {logging_mixin.py:112} INFO - [2021-05-17 02:00:14,195] {local_task_job.py:103} INFO - Task exited with return code 0
+[2021-05-17 02:58:28,108] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:58:28,124] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:58:28,124] {taskinstance.py:879} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:58:28,125] {taskinstance.py:880} INFO - Starting attempt 1 of 1
+[2021-05-17 02:58:28,125] {taskinstance.py:881} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:58:28,159] {taskinstance.py:900} INFO - Executing <Task(PythonOperator): list_files> on 2021-05-16T20:00:00+00:00
+[2021-05-17 02:58:28,164] {standard_task_runner.py:53} INFO - Started process 37234 to run task
+[2021-05-17 02:58:28,246] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [running]> alieymsxxn
+[2021-05-17 02:58:28,263] {logging_mixin.py:112} INFO - [2021-05-17 02:58:28,262] {gcp_api_base_hook.py:146} INFO - Getting connection using `google.auth.default()` since no key file is defined for hook.
+[2021-05-17 02:58:31,272] {logging_mixin.py:112} INFO - [2021-05-17 02:58:31,271] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 1 of 3. Reason: timed out
+[2021-05-17 02:58:31,332] {logging_mixin.py:112} INFO - [2021-05-17 02:58:31,331] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 2 of 3. Reason: [Errno 113] No route to host
+[2021-05-17 02:58:34,336] {logging_mixin.py:112} INFO - [2021-05-17 02:58:34,335] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 3 of 3. Reason: timed out
+[2021-05-17 02:58:34,337] {logging_mixin.py:112} INFO - [2021-05-17 02:58:34,337] {_default.py:282} WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+[2021-05-17 02:58:34,338] {taskinstance.py:1145} ERROR - Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+Traceback (most recent call last):
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 983, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/alieymsxxn/Documents/Projects/airflow/airflow_home/dags/bigquery_data_load.py", line 21, in list_objects
+    storage_objects = hook.list(bucket)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcs_hook.py", line 315, in list
+    client = self.get_conn()
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcs_hook.py", line 50, in get_conn
+    self._conn = storage.Client(credentials=self._get_credentials(),
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcp_api_base_hook.py", line 148, in _get_credentials
+    credentials, _ = google.auth.default(scopes=scopes)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/google/auth/_default.py", line 483, in default
+    raise exceptions.DefaultCredentialsError(_HELP_MESSAGE)
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+[2021-05-17 02:58:34,343] {taskinstance.py:1202} INFO - Marking task as FAILED.dag_id=bigquery_data_load, task_id=list_files, execution_date=20210516T200000, start_date=20210516T215828, end_date=20210516T215834
+[2021-05-17 02:58:38,064] {logging_mixin.py:112} INFO - [2021-05-17 02:58:38,063] {local_task_job.py:103} INFO - Task exited with return code 1
+[2021-05-17 02:59:58,475] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:59:58,482] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [queued]>
+[2021-05-17 02:59:58,483] {taskinstance.py:879} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:59:58,483] {taskinstance.py:880} INFO - Starting attempt 1 of 1
+[2021-05-17 02:59:58,483] {taskinstance.py:881} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:59:58,509] {taskinstance.py:900} INFO - Executing <Task(PythonOperator): list_files> on 2021-05-16T20:00:00+00:00
+[2021-05-17 02:59:58,513] {standard_task_runner.py:53} INFO - Started process 37382 to run task
+[2021-05-17 02:59:58,619] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: bigquery_data_load.list_files 2021-05-16T20:00:00+00:00 [running]> alieymsxxn
+[2021-05-17 03:00:00,581] {python_operator.py:114} INFO - Done. Returned value was: ['4649493c.csv', 'c876bd01.csv']
+[2021-05-17 03:00:00,624] {taskinstance.py:1065} INFO - Marking task as SUCCESS.dag_id=bigquery_data_load, task_id=list_files, execution_date=20210516T200000, start_date=20210516T215958, end_date=20210516T220000
+[2021-05-17 03:00:08,420] {logging_mixin.py:112} INFO - [2021-05-17 03:00:08,419] {local_task_job.py:103} INFO - Task exited with return code 0

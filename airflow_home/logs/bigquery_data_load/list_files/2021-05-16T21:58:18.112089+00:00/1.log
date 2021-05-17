@@ -1,0 +1,36 @@
+[2021-05-17 02:58:40,279] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T21:58:18.112089+00:00 [queued]>
+[2021-05-17 02:58:40,291] {taskinstance.py:669} INFO - Dependencies all met for <TaskInstance: bigquery_data_load.list_files 2021-05-16T21:58:18.112089+00:00 [queued]>
+[2021-05-17 02:58:40,291] {taskinstance.py:879} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:58:40,292] {taskinstance.py:880} INFO - Starting attempt 1 of 1
+[2021-05-17 02:58:40,292] {taskinstance.py:881} INFO - 
+--------------------------------------------------------------------------------
+[2021-05-17 02:58:40,330] {taskinstance.py:900} INFO - Executing <Task(PythonOperator): list_files> on 2021-05-16T21:58:18.112089+00:00
+[2021-05-17 02:58:40,335] {standard_task_runner.py:53} INFO - Started process 37243 to run task
+[2021-05-17 02:58:40,420] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: bigquery_data_load.list_files 2021-05-16T21:58:18.112089+00:00 [running]> alieymsxxn
+[2021-05-17 02:58:40,445] {logging_mixin.py:112} INFO - [2021-05-17 02:58:40,444] {gcp_api_base_hook.py:146} INFO - Getting connection using `google.auth.default()` since no key file is defined for hook.
+[2021-05-17 02:58:43,452] {logging_mixin.py:112} INFO - [2021-05-17 02:58:43,451] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 1 of 3. Reason: timed out
+[2021-05-17 02:58:43,524] {logging_mixin.py:112} INFO - [2021-05-17 02:58:43,523] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 2 of 3. Reason: [Errno 113] No route to host
+[2021-05-17 02:58:46,527] {logging_mixin.py:112} INFO - [2021-05-17 02:58:46,527] {_metadata.py:104} WARNING - Compute Engine Metadata server unavailable onattempt 3 of 3. Reason: timed out
+[2021-05-17 02:58:46,528] {logging_mixin.py:112} INFO - [2021-05-17 02:58:46,528] {_default.py:282} WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+[2021-05-17 02:58:46,528] {taskinstance.py:1145} ERROR - Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+Traceback (most recent call last):
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 983, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/alieymsxxn/Documents/Projects/airflow/airflow_home/dags/bigquery_data_load.py", line 21, in list_objects
+    storage_objects = hook.list(bucket)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcs_hook.py", line 315, in list
+    client = self.get_conn()
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcs_hook.py", line 50, in get_conn
+    self._conn = storage.Client(credentials=self._get_credentials(),
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/airflow/contrib/hooks/gcp_api_base_hook.py", line 148, in _get_credentials
+    credentials, _ = google.auth.default(scopes=scopes)
+  File "/home/alieymsxxn/anaconda3/envs/airflow/lib/python3.7/site-packages/google/auth/_default.py", line 483, in default
+    raise exceptions.DefaultCredentialsError(_HELP_MESSAGE)
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+[2021-05-17 02:58:46,530] {taskinstance.py:1202} INFO - Marking task as FAILED.dag_id=bigquery_data_load, task_id=list_files, execution_date=20210516T215818, start_date=20210516T215840, end_date=20210516T215846
+[2021-05-17 02:58:50,244] {logging_mixin.py:112} INFO - [2021-05-17 02:58:50,243] {local_task_job.py:103} INFO - Task exited with return code 1
