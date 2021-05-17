@@ -1,8 +1,8 @@
-# airflow
+# Apache Airflow
 My practice and reference project for Apache Airflow.
 
 
-#RUN WEBSERVER
+# RUN Airflow
 
 conda activate <your_environment>
 
@@ -13,7 +13,7 @@ airflow initdb (only when you are setting up for the first time)
 airflow webserver
 
 
-#RUN SCHEDULER
+# RUN SCHEDULER
 
 conda activate <your_environment>
 
@@ -22,7 +22,7 @@ export AIRFLOW_HOME=<your airflow workspace>
 airflow scheduler
 
 
-#OTHER COMMANDS
+# OTHER COMMANDS
 
 airflow unpause/pause <dag id>
 
