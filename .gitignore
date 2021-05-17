@@ -1,5 +1,8 @@
-# Object file
-*.o
-
-# Ada Library Information
-*.ali
+airflow/.vscode/
+airflow/airflow_home/security_key/
+airflow/airflow_home/airflow-webserver.pid
+airflow/airflow_home/dags/__pycache__/
+airflow/airflow_home/unittests.cfg/
+**/logs
+*.pid
+*.db
