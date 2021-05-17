@@ -6,7 +6,7 @@ My practice and reference project for Apache Airflow.
 
 conda activate <your_environment>
 
-export AIRFLOW_HOME=<your airflow workspace>
+export AIRFLOW_HOME = <your airflow workspace>
 
 airflow initdb (only when you are setting up for the first time)
 
